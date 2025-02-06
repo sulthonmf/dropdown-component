@@ -8,8 +8,8 @@
 - ✅ Storybook Support
 
 ## Live Preview
-- **Storybook:** [Storybook Link](https://username.github.io/repository)
-- **Deployment:** [Live App](https://your-app.vercel.app)
+- **Storybook:** [Storybook Link](https://sulthonmf.github.io/dropdown-component/)
+- **Deployment:** [Live App](https://dropdown-component-dkv8terue.vercel.app/)
 
 ## Installation
 # clone the repository  

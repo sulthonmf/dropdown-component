@@ -38,23 +38,27 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [dropdownWidth, setDropdownWidth] = useState<number>(0);
 
   useEffect(() => {
-    if (isOpen && portal && dropdownRef.current) {
-      const rect = dropdownRef.current.getBoundingClientRect();
-      setPosition({ top: rect.bottom + window.scrollY, left: rect.left });
+    if (dropdownRef.current) {
+      const updatePositionAndWidth = () => {
+        const rect = dropdownRef.current?.getBoundingClientRect();
+        if (rect) {
+          setDropdownWidth(rect.width);
+          if (isOpen && portal) {
+            const dropdownHeight = 240;
+            let newTop = rect.bottom + window.scrollY;
+            if (newTop + dropdownHeight > window.innerHeight) {
+              newTop = rect.top + window.scrollY - dropdownHeight;
+            }
+            setPosition({ top: newTop, left: rect.left });
+          }
+        }
+      };
+
+      updatePositionAndWidth();
+      window.addEventListener("resize", updatePositionAndWidth);
+      return () => window.removeEventListener("resize", updatePositionAndWidth);
     }
   }, [isOpen, portal]);
-
-  useEffect(() => {
-    if (dropdownRef.current) {
-      const updateWidth = () => {
-        setDropdownWidth(dropdownRef.current?.offsetWidth || 0);
-      };
-      
-      updateWidth();
-      window.addEventListener('resize', updateWidth);
-      return () => window.removeEventListener('resize', updateWidth);
-    }
-  }, []);
 
   const filteredOptions = options.filter((opt) =>
     opt.label.toLowerCase().includes(searchTerm.toLowerCase())
@@ -91,10 +95,10 @@ const Dropdown: React.FC<DropdownProps> = ({
       style={
         portal
           ? {
-              top: position.top,
-              left: position.left,
-              width: dropdownWidth,
-              position: "absolute",
+              position: "fixed",
+              top: `${position.top}px`,
+              left: `${position.left}px`,
+              width: `${dropdownWidth}px`,
               zIndex,
             }
           : { zIndex }
@@ -133,7 +137,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div className="flex flex-row gap-2 items-center w-full">
       {label && <Label classNames="font-bold text-lg" text={label} />}
-      <div className="relative items-center w-full pl-10" ref={dropdownRef}>
+      <div className="relative items-center w-full ml-10" ref={dropdownRef}>
         <DropdownToggle
           selectedOptions={selectedOptions}
           multiple={multiple}

@@ -1,4 +1,4 @@
-import{j as t}from"./index-BWNaj3TZ.js";import{useMDXComponents as r}from"./index-3LwI-BAG.js";import"./index-s726emSQ.js";import"./index-B-SYruCi.js";import"./index-C-aVi5AG.js";import"./iframe-BEpMLOKT.js";import"./index-Cu4lwwaE.js";import"./index-Brs1icLk.js";import"./index-ogSvIofg.js";function o(i){return t.jsxs(t.Fragment,{children:[t.jsxs("div",{children:[t.jsx("h1",{children:"Hello"}),t.jsx("p",{children:"This storybook is created to showcase the dropdown component."})]}),`
+import{j as t}from"./index-BWNaj3TZ.js";import{useMDXComponents as a}from"./index-3LwI-BAG.js";import"./index-QuLjjGS_.js";import"./index-B-SYruCi.js";import"./index-C-aVi5AG.js";import"./iframe-DlSJCqRD.js";import"./index-Cu4lwwaE.js";import"./index-Brs1icLk.js";import"./index-ogSvIofg.js";function o(e){return t.jsxs(t.Fragment,{children:[t.jsxs("div",{children:[t.jsx("h1",{children:"Hello"}),t.jsx("p",{children:"This storybook is created to showcase the dropdown component. and to complete the technical test for Makyo."})]}),`
 `,t.jsx("style",{children:`
   .sb-container {
     margin-bottom: 48px;
@@ -153,4 +153,4 @@ import{j as t}from"./index-BWNaj3TZ.js";import{useMDXComponents as r}from"./inde
       margin-left: -24px;
     }
   }
-  `})]})}function b(i={}){const{wrapper:e}={...r(),...i.components};return e?t.jsx(e,{...i,children:t.jsx(o,{...i})}):o()}export{b as default};
+  `})]})}function c(e={}){const{wrapper:i}={...a(),...e.components};return i?t.jsx(i,{...e,children:t.jsx(o,{...e})}):o()}export{c as default};
